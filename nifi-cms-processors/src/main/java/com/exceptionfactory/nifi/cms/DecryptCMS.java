@@ -18,6 +18,7 @@ package com.exceptionfactory.nifi.cms;
 
 import com.exceptionfactory.nifi.certificate.service.api.PrivateKeyService;
 import org.apache.commons.io.IOUtils;
+import org.apache.nifi.annotation.behavior.InputRequirement;
 import org.apache.nifi.annotation.documentation.CapabilityDescription;
 import org.apache.nifi.annotation.documentation.Tags;
 import org.apache.nifi.components.PropertyDescriptor;
@@ -62,6 +63,7 @@ import java.util.concurrent.atomic.AtomicReference;
 /**
  * Decrypt CMS Processor reads and decrypts contents using private keys matching CMS Recipients
  */
+@InputRequirement(InputRequirement.Requirement.INPUT_REQUIRED)
 @Tags({"CMS", "PKCS7", "RFC 5652", "AES"})
 @CapabilityDescription("Decrypt content using Cryptographic Message Syntax")
 public class DecryptCMS extends AbstractProcessor {

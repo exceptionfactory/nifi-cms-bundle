@@ -19,6 +19,7 @@ package com.exceptionfactory.nifi.cms;
 import com.exceptionfactory.nifi.certificate.service.api.CertificateService;
 import org.apache.commons.io.IOUtils;
 
+import org.apache.nifi.annotation.behavior.InputRequirement;
 import org.apache.nifi.annotation.behavior.WritesAttribute;
 import org.apache.nifi.annotation.behavior.WritesAttributes;
 import org.apache.nifi.components.PropertyDescriptor;
@@ -64,6 +65,7 @@ import java.util.stream.Collectors;
 /**
  * Encrypt CMS Processor writes and encrypts content using provided certificates and algorithm specified
  */
+@InputRequirement(InputRequirement.Requirement.INPUT_REQUIRED)
 @Tags({"CMS", "PKCS7", "RFC 5652", "AES"})
 @CapabilityDescription("Encrypt content using Cryptographic Message Syntax")
 @WritesAttributes(
