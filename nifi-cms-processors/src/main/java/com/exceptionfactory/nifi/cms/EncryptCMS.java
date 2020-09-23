@@ -20,8 +20,10 @@ import com.exceptionfactory.nifi.certificate.service.api.CertificateService;
 import org.apache.commons.io.IOUtils;
 
 import org.apache.nifi.annotation.behavior.InputRequirement;
+import org.apache.nifi.annotation.behavior.SideEffectFree;
 import org.apache.nifi.annotation.behavior.WritesAttribute;
 import org.apache.nifi.annotation.behavior.WritesAttributes;
+import org.apache.nifi.annotation.documentation.SeeAlso;
 import org.apache.nifi.components.PropertyDescriptor;
 import org.apache.nifi.expression.ExpressionLanguageScope;
 import org.apache.nifi.flowfile.FlowFile;
@@ -71,6 +73,8 @@ import java.util.stream.Collectors;
 @WritesAttributes(
         @WritesAttribute(attribute = "mime.type", description = "Set to application/pkcs7-mime on success")
 )
+@SideEffectFree
+@SeeAlso({ DecryptCMS.class })
 public class EncryptCMS extends AbstractProcessor {
     public static final PropertyDescriptor ALGORITHM = new PropertyDescriptor.Builder()
             .name("Algorithm")
